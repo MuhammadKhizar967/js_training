@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+	<input id="searchedText" type="text">
+	<button onclick="findIt()">Search</button>
+	<input id="totalSearches" style="border: none;">
+
+
+	<p id="text">My nAme is Sheikh Khizar Mehboob ahmed.</p>
+</body>
+
+<script type="text/javascript">
+
+	function findIt(){
+		var searched = document.getElementById("searchedText").value;
+		
+		if (searched){
+			var entireText = document.getElementById("text").innerHTML;
+			var searchedExp = new RegExp(searched, "gi");
+			var matches = entireText.match(searchedExp);
+			// alert(matches);
+			var matchCount = matches.length;
+			document.getElementById("totalSearches").value = matchCount;
+
+			for (var i=0; i<matchCount;){
+				var tempText = entireText.replace(searchedExp, "<span style='background-color:yellow'>" + matches[i] + "</span>");
+				document.getElementById("text").innerHTML = tempText;
+				i++;
+			}
+			
+
+			
+		}
+	}
+
+
+</script>
+</html>

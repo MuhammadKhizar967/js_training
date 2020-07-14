@@ -1,0 +1,35 @@
+<!-- Remove multiple occurrences of characters from a given string, so at the end only the first occurrence is retained.
+
+e.g; 'TechCity' -> 'Techiy'
+
+Write a JS function that takes string and returns the output.
+
+version 2:
+
+Modify the first task so first occurrence of a character is removed but all next are retained.
+
+e.g; 'TechTeam' -> 'chTeam'
+
+Push on github as Task1 with both above methods. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+	var string = "TechCity";
+	var split = string.slice(0, -2) + "<br/>";
+	document.write(split);
+
+	var stringAgain = "TechTeam";
+	var splitAgain = stringAgain.slice(2);
+	document.write(splitAgain);	
+</script>
+
+</html>
+
