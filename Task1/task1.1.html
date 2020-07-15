@@ -22,13 +22,40 @@ Push on github as Task1 with both above methods. -->
 </body>
 
 <script type="text/javascript">
-	var string = "TechCity";
-	var split = string.slice(0, -2) + "<br/>";
-	document.write(split);
+	// Version 1
+	var input = "Techcity";
+	
+	function uniqChar(input){
+		var string = input;
+		var unique = "";
+		
+		for(var i=0; i<string.length; i++){
+			if(unique.indexOf(string.charAt(i)) == -1){
+				unique = unique + string[i];
+			}
+		}
+		document.write(unique);
+	}
 
-	var stringAgain = "TechTeam";
-	var splitAgain = stringAgain.slice(2);
-	document.write(splitAgain);	
+	uniqChar(input);
+
+	// Version 2
+	var input = "TechTeam";
+	
+	function uniqChar(input){
+		var string = input;
+		var reverse = "";
+		
+		for(var i=string.length; i>=0; i--){
+			if(reverse.indexOf(string.charAt(i)) == -1){
+				reverse = reverse + string[i];
+			}
+		}
+		actualRes = reverse.split("").reverse().join("");
+		document.write(actualRes);
+	}
+
+	uniqChar(input);
 </script>
 
 </html>
