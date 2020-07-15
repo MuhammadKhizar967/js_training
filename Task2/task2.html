@@ -20,20 +20,25 @@
 		
 		if (searched){
 			var entireText = document.getElementById("text").innerHTML;
+			let count = 0;
 			var searchedExp = new RegExp(searched, "gi");
 			var matches = entireText.match(searchedExp);
 			// alert(matches);
-			var matchCount = matches.length;
-			document.getElementById("totalSearches").value = matchCount;
+			// var matchCount = matches.length;
+			// document.getElementById("totalSearches").value = matchCount;
 
-			for (var i=0; i<matchCount;){
-				var tempText = entireText.replace(searchedExp, "<span style='background-color:yellow'>" + matches[i] + "</span>");
-				document.getElementById("text").innerHTML = tempText;
-				i++;
-			}
+			// for (var i=0; i<matchCount;){
+			// 	var tempText = entireText.replace(searchedExp, "<span style='background-color:yellow'>" + matches[i] + "</span>");
+			// 	document.getElementById("text").innerHTML = tempText;
+			// 	i++;
+			// }
 			
-
-			
+			document.getElementById("text").innerHTML = entireText.replace(searchedExp, function(match){
+				++count;
+				document.getElementById("totalSearches").value = count;
+				return "<span style='background-color:yellow'>" + match + "</span>";
+			})
+	
 		}
 	}
 
