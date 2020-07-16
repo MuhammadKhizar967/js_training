@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#box{
+			width:250px;
+			height: 250px;
+			margin: auto;
+			border: 1px solid black;
+			border-radius: 10px;
+
+		}
+		#bg{
+			width:8%;
+			margin-left: 44%;
+			border: none;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<input id="bg" readonly=""></input>
+	<button id="change" onclick="changeColor(time)">Change</button>
+	<div id="box"></div>
+</body>
+
+<script type="text/javascript">
+	var time = prompt("Please input time (seconds)", "");
+	var colors = ["black", "grey", "green", "orange", "olive", "red", "brown", "blue"];
+	color = colors[Math.floor(Math.random()*colors.length)];
+
+	// document.write(color);
+
+	function changeColor(time){
+		color = colors[Math.floor(Math.random()*colors.length)];
+		var second = time*1000;
+		setTimeout(function(){
+			document.getElementById("box").style.backgroundColor = color;
+			document.getElementById("bg").value = color;	
+		}, second)
+		
+	}	
+
+	changeColor(time)
+</script>
+
+</html>
