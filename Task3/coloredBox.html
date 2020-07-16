@@ -13,36 +13,47 @@
 		}
 		#bg{
 			width:8%;
-			margin-left: 44%;
+			margin-left: 34%;
 			border: none;
-			text-align: center;
 		}
 	</style>
 </head>
 <body>
+	<input id="newTime"></input>
+	<button id="change" onclick="changeTime()">Change</button>
 	<input id="bg" readonly=""></input>
-	<button id="change" onclick="changeColor(time)">Change</button>
 	<div id="box"></div>
 </body>
 
 <script type="text/javascript">
 	var time = prompt("Please input time (seconds)", "");
 	var colors = ["black", "grey", "green", "orange", "olive", "red", "brown", "blue"];
+	var seconds = time*1000;
+	
+	function changeTime(){
+		var newTime = document.getElementById("newTime").value;
+		if (newTime) {
+			seconds = newTime*1000;
+			clearInterval(intervalId);
+			setInterval(function(){
+				color = colors[Math.floor(Math.random()*colors.length)];
+				document.getElementById("bg").value = color + " " + newTime + " second(s)";
+				document.getElementById("box").style.backgroundColor = color;
+			}, seconds);	
+			}
+		
+	}
+
+	var intervalId = setInterval(function(){
+		color = colors[Math.floor(Math.random()*colors.length)];
+		document.getElementById("bg").value = color + " " + time + " second(s)";
+		document.getElementById("box").style.backgroundColor = color;
+	}, seconds);
+
 	color = colors[Math.floor(Math.random()*colors.length)];
 
-	// document.write(color);
+	changeColor()
 
-	function changeColor(time){
-		color = colors[Math.floor(Math.random()*colors.length)];
-		var second = time*1000;
-		setTimeout(function(){
-			document.getElementById("box").style.backgroundColor = color;
-			document.getElementById("bg").value = color;	
-		}, second)
-		
-	}	
-
-	changeColor(time)
 </script>
 
 </html>
